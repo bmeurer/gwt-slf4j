@@ -1,0 +1,24 @@
+-classpath
+'/Users/bmeurer/Projects/benediktmeurer/gwt-slf4j/target/classes:/Users/bmeurer/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar:/Users/bmeurer/.m2/repository/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0.jar:/Users/bmeurer/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar:/Users/bmeurer/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/bmeurer/Projects/benediktmeurer/gwt-slf4j/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2012. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/bmeurer/Projects/benediktmeurer/gwt-slf4j/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'gwt-slf4j 0.0.1-SNAPSHOT API'
+-linkoffline
+'http://download.oracle.com/javase/6/docs/api' '/Users/bmeurer/Projects/benediktmeurer/gwt-slf4j/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'gwt-slf4j 0.0.1-SNAPSHOT API'
