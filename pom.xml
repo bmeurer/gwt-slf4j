@@ -13,6 +13,7 @@
     <name>gwt-slf4j</name>
     <description>SLF4J for GWT</description>
     <inceptionYear>2012</inceptionYear>
+    <url>http://bmeurer.github.com/gwt-slf4j</url>
     <licenses>
         <license>
             <name>MIT License</name>
