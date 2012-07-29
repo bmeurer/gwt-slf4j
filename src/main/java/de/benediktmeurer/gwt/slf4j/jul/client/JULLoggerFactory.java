@@ -36,7 +36,7 @@ import org.slf4j.Logger;
  * @author Benedikt Meurer
  * @see ILoggerFactory
  */
-final class JULLoggerFactory implements ILoggerFactory {
+public class JULLoggerFactory implements ILoggerFactory {
     /** The map of active loggers. */
     private final Map<String, Logger> loggers = new HashMap<String, Logger>();
 

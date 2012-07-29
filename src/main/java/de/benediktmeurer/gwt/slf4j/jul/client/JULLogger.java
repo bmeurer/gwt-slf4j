@@ -37,7 +37,7 @@ import org.slf4j.helpers.MessageFormatter;
  * @author Benedikt Meurer
  * @see Logger
  */
-final class JULLogger extends MarkerIgnoringBase implements Logger {
+public class JULLogger extends MarkerIgnoringBase implements Logger {
     /** The serial version UID of this class. */
     private static final long serialVersionUID = 1L;
 
