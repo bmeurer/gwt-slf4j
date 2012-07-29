@@ -22,7 +22,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.benediktmeurer.gwt.slf4j.client;
+package de.benediktmeurer.gwt.slf4j.jul.client;
 
 import java.util.logging.Level;
 
@@ -37,7 +37,7 @@ import org.slf4j.helpers.MessageFormatter;
  * @author Benedikt Meurer
  * @see Logger
  */
-final class JDK14Logger extends MarkerIgnoringBase implements Logger {
+final class JULLogger extends MarkerIgnoringBase implements Logger {
     /** The serial version UID of this class. */
     private static final long serialVersionUID = 1L;
 
@@ -45,11 +45,11 @@ final class JDK14Logger extends MarkerIgnoringBase implements Logger {
     private final transient java.util.logging.Logger logger;
 
     /**
-     * Constructs a new {@link JDK14Logger} with the specified parameters.
+     * Constructs a new {@link JULLogger} with the specified parameters.
      * 
      * @param logger the JDK 1.4 {@link java.util.logging.Logger}.
      */
-    public JDK14Logger(java.util.logging.Logger logger) {
+    public JULLogger(java.util.logging.Logger logger) {
         this.logger = logger;
     }
 

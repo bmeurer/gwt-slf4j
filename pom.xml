@@ -8,7 +8,7 @@
     <groupId>de.benediktmeurer.gwt-slf4j</groupId>
     <artifactId>gwt-slf4j</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>gwt-slf4j</name>
     <description>SLF4J for GWT</description>
@@ -21,10 +21,6 @@
         </license>
     </licenses>
 
-    <organization>
-        <url>http://benediktmeurer.de</url>
-    </organization>
-
     <developers>
         <developer>
             <id>bmeurer</id>
@@ -35,19 +31,14 @@
                 <role>developer</role>
             </roles>
             <timezone>+1</timezone>
+            <url>http://benediktmeurer.de</url>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/bmeurer/gwt-slf4j.git</connection>
+        <connection>scm:git:https://github.com/bmeurer/gwt-slf4j.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:bmeurer/gwt-slf4j.git</developerConnection>
     </scm>
-
-    <modules>
-        <module>gwt-slf4j-api</module>
-        <module>gwt-slf4j-jdk14</module>
-        <module>gwt-slf4j-sample</module>
-    </modules>
 
     <properties>
         <gwt.version>2.4.0</gwt.version>
@@ -58,57 +49,33 @@
 
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
+
         <pluginManagement>
             <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
                     <configuration>
-                        <archive>
-                            <addMavenDescriptor>true</addMavenDescriptor>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Build-Number>${buildNumber}</Build-Number>
-                            </manifestEntries>
-                        </archive>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.codehaus.mojo</groupId>
+                                        <artifactId>gwt-maven-plugin</artifactId>
+                                        <versionRange>[2.4.0,)</versionRange>
+                                        <goals>
+                                            <goal>resources</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
                     </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.2</version>
-                    <configuration>
-                        <archive>
-                            <addMavenDescriptor>true</addMavenDescriptor>
-                            <manifest>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Build-Number>${buildNumber}</Build-Number>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <version>${gwt.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>compile</goal>
-                                <goal>test</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -122,6 +89,25 @@
                     <source>1.6</source>
                     <target>1.6</target>
                     <debug>true</debug>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Build-Number>${buildNumber}</Build-Number>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
 
@@ -159,6 +145,19 @@
                     <shortRevisionLength>7</shortRevisionLength>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -178,51 +177,28 @@
         </plugins>
     </reporting>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt-user</artifactId>
-                <version>${gwt.version}</version>
-                <scope>provided</scope>
-            </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>de.benediktmeurer.gwt-slf4j</groupId>
-                <artifactId>gwt-slf4j-api</artifactId>
-                <version>${project.version}</version>
-                <type>jar</type>
-            </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
 
-            <dependency>
-                <groupId>de.benediktmeurer.gwt-slf4j</groupId>
-                <artifactId>gwt-slf4j-jdk14</artifactId>
-                <version>${project.version}</version>
-                <type>jar</type>
-            </dependency>
-
-            <dependency>
-                <groupId>de.benediktmeurer.gwt-slf4j</groupId>
-                <artifactId>gwt-slf4j-sample</artifactId>
-                <version>${project.version}</version>
-                <type>war</type>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.10</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <issueManagement>
         <system>GitHub Issue Tracker</system>

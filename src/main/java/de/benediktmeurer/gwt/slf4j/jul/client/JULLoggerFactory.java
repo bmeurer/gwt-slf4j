@@ -22,32 +22,34 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.benediktmeurer.gwt.slf4j.sample.client;
+package de.benediktmeurer.gwt.slf4j.jul.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.google.gwt.core.client.EntryPoint;
 
 /**
- * Entry point for the sample.
+ * JDK 1.4+ implementation of the {@link ILoggerFactory} interface.
  * 
  * @author Benedikt Meurer
+ * @see ILoggerFactory
  */
-public class SampleEntryPoint implements EntryPoint {
-    /** The logger for this class. */
-    private static final Logger logger = LoggerFactory.getLogger(SampleEntryPoint.class);
+final class JULLoggerFactory implements ILoggerFactory {
+    /** The map of active loggers. */
+    private final Map<String, Logger> loggers = new HashMap<String, Logger>();
 
     /**
-     * @see EntryPoint#onModuleLoad()
+     * @see ILoggerFactory#getLogger(String)
      */
     @Override
-    public void onModuleLoad() {
-        System.err.println(logger);
-        logger.trace("This is a {} message", "TRACE");
-        logger.debug("This is a {} message", "DEBUG");
-        logger.info("This is an {} message", "INFO");
-        logger.warn("This is a {} message", "WARN");
-        logger.error("This is an {} message", "ERROR");
+    public Logger getLogger(String name) {
+        Logger logger = this.loggers.get(name);
+        if (logger == null) {
+            logger = new JULLogger(java.util.logging.Logger.getLogger(name));
+            this.loggers.put(logger.getName(), logger);
+        }
+        return logger;
     }
 }

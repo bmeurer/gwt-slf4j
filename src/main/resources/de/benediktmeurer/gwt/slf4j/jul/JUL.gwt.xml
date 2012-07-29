@@ -30,7 +30,7 @@
     
     <source path="client" />
     
-    <replace-with class="de.benediktmeurer.gwt.slf4j.client.JDK14LoggerFactory">
+    <replace-with class="de.benediktmeurer.gwt.slf4j.jul.client.JULLoggerFactory">
         <when-type-is class="org.slf4j.ILoggerFactory" />
     </replace-with>
 </module>
