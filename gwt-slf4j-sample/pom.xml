@@ -8,7 +8,7 @@
     <artifactId>gwt-slf4j-sample</artifactId>
     <packaging>war</packaging>
 
-    <name>gwt-slf4j-jdk14</name>
+    <name>gwt-slf4j-sample</name>
     <description>SLF4J for GWT sample</description>
 
     <parent>
