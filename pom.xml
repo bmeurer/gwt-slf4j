@@ -38,7 +38,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/bmeurer/gwt-slf4j.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:bmeurer/gwt-slf4j.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/bmeurer/gwt-slf4j.git</developerConnection>
     </scm>
 
     <properties>
