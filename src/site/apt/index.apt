@@ -1,0 +1,17 @@
+    --------------------------------
+    SLF4J for the Google Web Toolkit
+    --------------------------------
+    Benedikt Meurer
+    --------------------------------
+
+Introduction
+
+  The {{{http://www.slf4j.org}Simple Logging Facade for Java (SLF4J)}} serves as a simple
+facade or abstraction for various logging frameworks, e.g. java.util.logging, log4j and logback,
+allowing the end user to plug in the desired logging framework at deployment time. It is the
+standard logging facade for server-side Java code nowadays. But using the SLF4J in client-side
+GWT code or code shared between client and server is not possible out of the box.
+
+  The aim of this project is to provide developers with an implementation of the SLF4J API for
+the GWT client side. Right now the project provides the basic SLF4J API and an implementation of
+the API using the <<<java.util.logging>>> (JUL) logging framework supported since GWT 2.1.
