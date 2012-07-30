@@ -10,7 +10,7 @@
 
     <groupId>de.benediktmeurer.gwt-slf4j</groupId>
     <artifactId>gwt-slf4j</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>gwt-slf4j</name>
